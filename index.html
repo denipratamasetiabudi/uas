@@ -306,7 +306,19 @@
             
           </div>
         </div>
-      </footer>
+    </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwjtTNcCN1gZWs70xp2uV0V9rZY0s4XhVV9S_KqPR139BDHaa23UezmavyIDxoHFqtn/exec'
+        const form = document.forms['contact-form']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
     <script src="js/script.js"></script>
 </body>
 </html>
